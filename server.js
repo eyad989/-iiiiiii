@@ -6,17 +6,20 @@ app.get("/", (req, res) => {
 });
 
 app.get("/signal", (req, res) => {
+    const pairs = ["EUR/USD", "GBP/USD", "USD/JPY", "BTC/USD"];
     const signals = ["CALL 📈", "PUT 📉", "NO TRADE 🚫"];
-    const random = signals[Math.floor(Math.random() * signals.length)];
+
+    const randomPair = pairs[Math.floor(Math.random() * pairs.length)];
+    const randomSignal = signals[Math.floor(Math.random() * signals.length)];
 
     res.json({
-        pair: "EUR/USD",
-        signal: random,
-        accuracy: Math.floor(Math.random() * 25) + 70
+        pair: randomPair,
+        signal: randomSignal,
+        accuracy: Math.floor(Math.random() * 30) + 70
     });
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log("RUNNING ON PORT " + PORT);
+    console.log("EYAD AI RUNNING 🚀 ON PORT " + PORT);
 });
