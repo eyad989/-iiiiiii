@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
 
+app.get("/", (req, res) => {
+    res.send("EYAD AI LIVE 🚀");
+});
+
 app.get("/signal", (req, res) => {
     const signals = ["CALL 📈", "PUT 📉", "NO TRADE 🚫"];
     const random = signals[Math.floor(Math.random() * signals.length)];
@@ -12,6 +16,7 @@ app.get("/signal", (req, res) => {
     });
 });
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log("EYAD AI LIVE 🚀");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log("RUNNING ON PORT " + PORT);
 });
